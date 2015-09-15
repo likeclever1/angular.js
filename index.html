@@ -1,0 +1,52 @@
+<!doctype html>
+<html ng-app="questApp">
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <div ng-controller="QuestionController">
+        <div class="quest">
+            <h3>{{question.text}}</h3>
+            <p>{{question.author}}</p>
+            <p><i>{{question.date}}</i></p>
+        </div>
+
+        <h3>Ответы</h3>
+        <answer-list source="question"></answer-list>
+    </div>
+    <!-- end ng-controller='QuestionCtrl' -->
+
+    <div ng-controller="AnswerController">
+        <form name="answerForm">
+            <fieldset>
+                <p>
+                    <label for="answerText">Текст ответа</label>
+                    <input id="answerAuthor" ng-model="answer.text" required placeholder="Введите ответ" type="text"/>
+                </p>
+
+                <p>
+                    <label for="answerAuthor">Автор ответа</label>
+                    <input type="text" id="answerAuthor" required ng-model="answer.author" placeholder="Введите автора">
+                </p>
+
+                <p>
+                    <label for="answerAuthor">Дата ответа</label>
+                    <input id="answerDate" ng-model="answer.date" required  ng-pattern="/\d\d/\d\d/\d\d\d\d/" placeholder="Введите дату">
+                </p>
+            </fieldset>
+
+            <button type="submit" ng-click="save(answer, answerForm)">Сохранить</button>
+        </form>
+    </div>
+
+
+    <script src="js/lib/angular.js"></script>
+    <script src="js/controllers/app.js"></script>
+    <script src="js/controllers/AnswerController.js"></script>
+    <script src="js/answerList.js"></script>
+    <script src="js/controllers/filter.js"></script>
+</body>
+</html>
