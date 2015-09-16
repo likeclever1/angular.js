@@ -6,6 +6,7 @@ questApp.directive("answerList", function() {
             console.log(scope);
         },
         restrict: "AE",
-        templateUrl: "templates/answersTemplate.html"
+        templateUrl: "templates/answersTemplate.html",
+        transclude: true
     }
 });

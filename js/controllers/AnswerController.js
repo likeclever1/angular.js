@@ -1,10 +1,14 @@
-questApp.controller("AnswerController", function($scope) {
+questApp.controller("AnswerController", function($scope, $http) {
 
+    $scope.response = {};
     $scope.save = function(answer, answerForm) {
+        console.log(answer);
+        console.log(answerForm);
         if(answerForm.$valid) {
-            alert(answer.author + ", Ваш ответ сохранён!");
-        } else {
-            alert("Введите корректные данные!");
+            $http.post("postAnswer.php", answer)
+                .success(function(answ) {
+                    $scope.response = answ;
+                });
         }
     }
 
