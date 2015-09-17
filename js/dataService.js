@@ -1,4 +1,4 @@
-questApp.factory('dataService', function($http, $q) {
+myApp.factory('dataService', function($http, $q) {
     return {
         getData: function() {
             var deferred = $q.defer();

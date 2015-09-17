@@ -1,4 +1,4 @@
-questApp.controller("QuestionController", function QuestionController($scope, dataService, $http) {
+myApp.controller("QuestionController", function QuestionController($scope, dataService, $http) {
 
     var promiseObj = dataService.getData();
     console.log(promiseObj);
