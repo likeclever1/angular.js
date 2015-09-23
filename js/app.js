@@ -1,5 +1,5 @@
 var myApp = angular.module("myApp", []);
 
-myApp.controller("MyController", function($scope) {
-
+myApp.controller("conditionButton", function($scope) {
+	console.log(angular.element("input"));
 });

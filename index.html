@@ -6,16 +6,35 @@
 </head>
 
 <body>
-    <h1>Sample Application</h1>
+    <h1>Angular JS Controller</h1>
 
-    <div ng-init="countries = [{locale:'en-US', name:'United States'}, {locale:'en-GB',name:'United Kingdom'}, {locale:'en-FR',name:'France'}]">
-        <div ng-repeat="country in countries">
-            <p><a href="">{{country.locale}}</a></p>
-            <p>{{country.name}}</p>
-        </div>
+    <div ng-controller="StudentController">
+        Enter first name: <input type="text" ng-model="student.firstName">
+        Enter last name: <input type="text" ng-model="student.lastName">
+        <p>{{student.fullName() | uppercase}}</p>
+        <pre>{{student | json:4}}</pre>
+
+        <table>
+            <tr>
+                <th>name</th>
+                <th>marks</th>
+            </tr>
+
+            <tr ng-repeat="subject in student.subjects">
+                <td>{{subject.name}}</td>
+                <td>{{subject.marks}}</td>
+            </tr>
+        </table>
+    </div>
+
+    <div ng-controller="conditionButton">
+        <input type="checkbox">
+        <button ng-disabled="checked">Button</button>
     </div>
 
     <script src="js/lib/angular.js"></script>
     <script src="js/app.js"></script>
+    <script src="js/controller/StudentController.js"></script>
+
 </body>
 </html>
